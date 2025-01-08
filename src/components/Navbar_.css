@@ -1,0 +1,208 @@
+@import './variables.css';
+
+.bg-body-tertiary {
+    background-color: rgb(14, 87, 197);
+}
+
+/* Redefine navbar layout using Flexbox */
+ .navbar {
+    display: flex; /* Changed from grid to flex */
+    justify-content: space-between; /* Space between logo and links */
+    align-items: center;
+    padding: 15px 30px; /* Adjusted padding for balanced spacing */
+    background-color: var(--primary-color);
+    position: fixed; /* Make navbar sticky */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ensure full width */
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.5s ease, padding 0.3s ease; /* Added transition */
+    gap: 20px; /* Added gap between navbar items */
+   
+    /* Removed horizontal padding to eliminate white space */
+    /* padding: 20px; */
+}
+
+/* Adjust navbar padding and background on scroll */
+.navbar.scrolled {
+    padding: 10px 20px; /* Reduced padding when scrolled */
+    background-color: var(--secondary-color); /* Change background on scroll */
+   
+}
+
+.navbar a {
+    color: var(--background-color); /* Updated to white for visibility */
+    margin: 0 10px; /* Reduced horizontal margin for tighter spacing */
+    text-decoration: none;
+    font-size: 1em; /* Standardize font size */
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease; /* Added transition */
+    border: 2px solid transparent; /* Added border */
+    padding: 10px 20px; /* Increased padding for larger touch targets */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.navbar a:hover {
+    color: var(--accent-color); /* Updated */
+    transform: scale(1.1);
+    border: 2px solid var(--accent-color); /* Highlight border on hover */
+    transition: color 0.3s ease, transform 0.3s ease; /* Ensured transition */
+}
+
+/* Style for active navbar link */
+.nav-links a.active {
+    color: var(--accent-color); /* Highlight active link */
+    border-bottom: 2px solid var(--accent-color); /* Underline active link */
+}
+
+/* Responsive Navigation */
+@media (max-width: 1024px) {
+    .navbar a {
+        margin: 0 10px;
+        font-size: 0.9em;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        top: 50px;
+        height: calc(100% - 50px);
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        display: flex; /* Changed from grid to flex for mobile */
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Updated */
+        gap: 10px;
+        padding: 10px 20px; /* Reduced padding on mobile */
+    }
+
+    .navbar a {
+        color: var(--background-color); /* Ensure links are white on mobile */
+        margin: 10px 0; /* Increased vertical margin for easier tapping */
+        width: 100%; /* Make links take full width for easier tapping */
+        text-align: center;
+        font-size: 1em;
+        padding: 15px 0; /* Increased vertical padding */
+        border-top: 1px solid var(--accent-color); /* Updated */
+    }
+
+    .hamburger {
+        display: flex; /* Ensure hamburger is visible on mobile */
+        z-index: 1001; /* Position above nav-links */
+        margin-right: 0; /* Adjusted margin for mobile layout */
+    }
+    
+    .nav-links {
+        position: fixed; /* Changed to fixed for better control */
+        top: 60px; /* Updated */
+        left: -100%;
+        flex-direction: column;
+        background-color: var(--primary-color);
+        width: 100%;
+        height: calc(100% - 60px); /* Updated */
+        align-items: center;
+        justify-content: center;
+        transition: left 0.3s ease, opacity 0.3s ease;
+        opacity: 0;
+        padding: 0; /* Remove horizontal padding */
+        gap: 15px; /* Increased gap between navigation links */
+        padding: 10px 0; /* Added vertical padding */
+    }
+    
+    .nav-links.active {
+        left: 0;
+        opacity: 1;
+    }
+    
+    .nav-links a.active {
+        color: var(--accent-color); /* Highlight active link on mobile */
+    }
+
+    .nav-links a {
+        /* Ensure links are full width for easier tapping */
+        width: 100%;
+        text-align: center;
+        padding: 15px 0;
+    }
+}
+
+.hamburger {
+    display: none; /* Hidden on larger screens */
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 1001; /* Ensure hamburger is above nav-links */
+    margin-right: 15px; /* Added margin to position hamburger icon */
+   
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--background-color); /* Updated */
+    transition: all 0.3s ease;
+   
+}
+
+.hamburger.change .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.change .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.change .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.nav-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px; /* Increased gap between navigation links */
+    transition: left 0.3s ease, opacity 0.3s ease;
+    padding: 10px 0; /* Added vertical padding */
+   
+}
+
+.nav-links.active {
+    left: 0;
+    opacity: 1;
+
+}
+
+.nav-links a,
+.theme-toggle,
+.hamburger {
+
+}
+
+/* Smooth scrolling behavior */
+html {
+    scroll-behavior: smooth;
+} 
+
+/* Optional: Customize AOS animation targets */
+[data-aos="fade-down"] {
+    /* Additional customization if needed */
+}
+
+
+
+/* Smooth scrolling behavior */
+html {
+    scroll-behavior: smooth;
+} 
+
+/* Optional: Customize AOS animation targets */
+[data-aos="fade-down"] {
+    /* Additional customization if needed */
+}
+
+/* Removed Tailwind-specific styles */

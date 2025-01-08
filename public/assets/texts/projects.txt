@@ -1,0 +1,30 @@
+Project One
+E-commerce Platform
+A full-featured e-commerce application built with React.js and Node.js, featuring user authentication, product listings, shopping cart functionality, and payment integration.
+project3.png
+
+Project Two
+solitude-shadows
+In one of the most mysterious and abandoned houses in the area, strange occurrences have caught the attention of the police department. Neighbors have reported hearing screams, gunshots, and seeing suspicious movements around the house. These unsettling reports have led the police to assign a mission to a lieutenant, tasked with investigating the house and verifying the truth behind these eerie complaints. But what awaits inside is a challenge beyond anything the lieutenant could have anticipated.
+project4.png
+
+Project Three
+Portfolio Website
+A personal portfolio website designed with React.js and CSS3 to showcase projects, skills, and contact information, featuring responsive design and interactive elements.
+project3.png
+
+Project Three
+Portfolio Website
+A personal portfolio website designed with React.js and CSS3 to showcase projects, skills, and contact information, featuring responsive design and interactive elements.
+project3.png
+
+Project Three
+Portfolio Website
+A personal portfolio website designed with React.js and CSS3 to showcase projects, skills, and contact information, featuring responsive design and interactive elements.
+project3.png
+/* Add more projects below following the same format:
+Title of Project
+Subtitle of Project
+Description of the project.
+image_filename.png
+*/
