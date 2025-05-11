@@ -27,20 +27,36 @@ function renderPortfolio() {
 
     // --- About Me Section ---
     const aboutSection = document.createElement('section');
-    aboutSection.className = 'texts-section';
-    aboutSection.id = 'about'; // Added for navigation
+    aboutSection.className = 'about-section'; // Changed class name
+    aboutSection.id = 'about';
     const aboutTitle = document.createElement('h2');
     aboutTitle.className = 'section-title';
     aboutTitle.textContent = 'About Me';
     aboutSection.appendChild(aboutTitle);
+
+    const aboutMeContent = document.createElement('div'); // New container for the text
+    aboutMeContent.className = 'about-me-content';
+
     fetchText('assets/texts/texts.txt').then(text => {
-        text.split(/\r?\n/).forEach(line => {
-            const p = document.createElement('p');
-            p.className = 'portfolio-text';
-            p.textContent = line;
-            aboutSection.appendChild(p);
-        });
+        // Join lines into a single paragraph or process as needed
+        // For now, let's assume the text is a single block.
+        // If texts.txt has multiple paragraphs separated by blank lines,
+        // we might need to split and create multiple <p> elements.
+        // For simplicity, we'll treat it as one block for now.
+        const p = document.createElement('p');
+        // Replace newlines in the text file with <br> for HTML rendering,
+        // or split into multiple paragraphs if that's the structure.
+        // Current texts.txt seems to be a single block of text.
+        p.innerHTML = text.trim().replace(/\r?\n/g, '<br>'); 
+        aboutMeContent.appendChild(p);
+    }).catch(error => { // Added catch block for robustness
+        console.error("Failed to load about me text:", error);
+        const pError = document.createElement('p');
+        pError.textContent = 'Could not load about me information.';
+        pError.style.color = 'var(--accent-color)';
+        aboutMeContent.appendChild(pError);
     });
+    aboutSection.appendChild(aboutMeContent); // Append the new content container
     portfolioContainer.appendChild(aboutSection);
 
     // --- Projects Section ---
@@ -206,16 +222,11 @@ function renderPortfolio() {
             return trimmedEntry !== '' && !trimmedEntry.startsWith('/*');
         });
 
-        if (experienceEntries.length === 0 && text.trim() !== '' && !text.trim().startsWith('/*')) {
-            console.warn("[DEBUG] No experience entries were parsed. Check formatting in experience.txt.");
-        }
-
         experienceEntries.forEach(entryData => {
             const lines = entryData.split(/\r?\n/).map(line => line.trim()).filter(line => line !== '' && !line.startsWith('//'));
             
-            if (lines.length < 3) { // Title, Company | Location, Date, at least one responsibility
-                console.warn(`[DEBUG] Experience entry is incomplete: "${lines.join(' | ')}"`);
-                return;
+            if (lines.length < 3) { // Title, Company | Location, Date are minimum
+                return; // Silently skip incomplete entries
             }
 
             const experienceItem = document.createElement('div');
@@ -236,13 +247,25 @@ function renderPortfolio() {
 
             if (lines.length > 3) {
                 const responsibilitiesList = document.createElement('ul');
-                lines.slice(3).forEach(responsibility => {
-                    if (responsibility.startsWith('-')) {
-                        const listItem = document.createElement('li');
-                        listItem.textContent = responsibility.substring(1).trim();
-                        responsibilitiesList.appendChild(listItem);
+                for (let i = 3; i < lines.length; i++) {
+                    const line = lines[i]; 
+                    if (line.startsWith('-')) {
+                        const currentLi = document.createElement('li');
+                        let textForLi = line.substring(1).trim(); 
+
+                        let j = i + 1;
+                        while (j < lines.length && !lines[j].startsWith('-')) {
+                            const continuationLine = lines[j].trim(); 
+                            if (continuationLine) { 
+                                textForLi += '<br>' + continuationLine;
+                            }
+                            j++;
+                        }
+                        currentLi.innerHTML = textForLi; 
+                        responsibilitiesList.appendChild(currentLi);
+                        i = j - 1; 
                     }
-                });
+                }
                 experienceItem.appendChild(responsibilitiesList);
             }
             experienceContent.appendChild(experienceItem);
@@ -358,17 +381,75 @@ function renderPortfolio() {
     skillsTitle.className = 'section-title';
     skillsTitle.textContent = 'Skills';
     skillsSection.appendChild(skillsTitle);
-    const skillsList = document.createElement('ul');
-    skillsList.className = 'skills-list';
+
+    const skillsContentContainer = document.createElement('div');
+    skillsContentContainer.className = 'skills-content-container';
+
     fetchText('assets/texts/skills.txt').then(text => {
-        text.split(/\r?\n/).forEach(skill => {
-            if (skill.trim() === '') return;
-            const li = document.createElement('li');
-            li.textContent = skill;
-            skillsList.appendChild(li);
+        const lines = text.split(/\r?\n/).filter(line => line.trim() !== '' && !line.startsWith('//'));
+
+        let standaloneSkillsDiv = null;
+        let standaloneSkillsList = null;
+
+        lines.forEach(line => {
+            const trimmedLine = line.trim();
+            if (trimmedLine.includes(':')) {
+                const parts = trimmedLine.split(':', 2);
+                const categoryName = parts[0].trim();
+                const subSkillsString = parts[1].trim();
+                
+                const categoryDiv = document.createElement('div');
+                categoryDiv.className = 'skill-category';
+
+                const categoryTitleElement = document.createElement('h4');
+                categoryTitleElement.className = 'skill-category-title';
+                categoryTitleElement.textContent = categoryName;
+                categoryDiv.appendChild(categoryTitleElement);
+
+                const subSkillsUl = document.createElement('ul');
+                subSkillsUl.className = 'skill-list skill-subcategory-list';
+                
+                subSkillsString.split(',').forEach(subSkill => {
+                    const subSkillTrimmed = subSkill.trim();
+                    if (subSkillTrimmed) {
+                        const li = document.createElement('li');
+                        li.className = 'skill-item';
+                        li.textContent = subSkillTrimmed;
+                        subSkillsUl.appendChild(li);
+                    }
+                });
+                categoryDiv.appendChild(subSkillsUl);
+                skillsContentContainer.appendChild(categoryDiv);
+            } else {
+                if (!standaloneSkillsDiv) {
+                    standaloneSkillsDiv = document.createElement('div');
+                    standaloneSkillsDiv.className = 'skill-category standalone-skills-category';
+
+                    const standaloneCategoryTitle = document.createElement('h4');
+                    standaloneCategoryTitle.className = 'skill-category-title';
+                    standaloneCategoryTitle.textContent = 'Technical Proficiencies';
+                    standaloneSkillsDiv.appendChild(standaloneCategoryTitle);
+
+                    standaloneSkillsList = document.createElement('ul');
+                    standaloneSkillsList.className = 'skill-list';
+                    standaloneSkillsDiv.appendChild(standaloneSkillsList);
+                    skillsContentContainer.appendChild(standaloneSkillsDiv);
+                }
+                const li = document.createElement('li');
+                li.className = 'skill-item';
+                li.textContent = trimmedLine;
+                standaloneSkillsList.appendChild(li);
+            }
         });
+    }).catch(error => {
+        console.error("Failed to load skills.txt:", error);
+        const pError = document.createElement('p');
+        pError.textContent = 'Could not load skills.';
+        pError.style.color = 'var(--accent-color)';
+        skillsContentContainer.appendChild(pError);
     });
-    skillsSection.appendChild(skillsList);
+
+    skillsSection.appendChild(skillsContentContainer);
     portfolioContainer.appendChild(skillsSection);
 
   
@@ -381,27 +462,82 @@ function renderPortfolio() {
     contactTitle.className = 'section-title';
     contactTitle.textContent = 'Contact';
     contactSection.appendChild(contactTitle);
+    const contactGrid = document.createElement('div');
+    contactGrid.className = 'contact-grid';
+
+    const iconMap = {
+        email: 'fas fa-envelope',
+        linkedin: 'fab fa-linkedin',
+        github: 'fab fa-github',
+        phone: 'fas fa-phone',
+        itchio: 'fab fa-itch-io', 
+        website: 'fas fa-globe',
+        twitter: 'fab fa-twitter',
+        instagram: 'fab fa-instagram',
+        facebook: 'fab fa-facebook'
+    };
+    const defaultIcon = 'fas fa-info-circle';
+
     fetchText('assets/texts/contact.txt').then(text => {
         text.split(/\r?\n/).forEach(line => {
-            const p = document.createElement('p');
-            if (line.includes(':') && (line.toLowerCase().includes('http') || line.toLowerCase().includes('mailto'))) {
+            if (line.trim() === '' || line.startsWith('//')) return;
+
+            const contactItem = document.createElement('div');
+            contactItem.className = 'contact-item';
+
+            const iconSpan = document.createElement('span');
+            iconSpan.className = 'contact-icon';
+
+            let linkTextContent = line;
+            let url = '#';
+            let isLink = false;
+            let contactType = 'unknown';
+
+            if (line.includes(':')) {
                 const parts = line.split(': ');
-                const linkText = parts[0];
-                const url = parts.slice(1).join(': '); // Handle URLs with colons
+                contactType = parts[0].toLowerCase().replace(/[^a-z0-9]/gi, ''); 
+                const value = parts.slice(1).join(': ');
+                linkTextContent = value;
+
+                iconSpan.innerHTML = `<i class="${iconMap[contactType] || defaultIcon}"></i>`;
+
+                if (contactType === 'email') {
+                    url = `mailto:${value}`; 
+                    isLink = true;
+                } else if (contactType === 'phone') {
+                    url = `tel:${value.replace(/\s+/g, '')}`; 
+                    isLink = true;
+                } else if (value.startsWith('http') || value.startsWith('www')) {
+                    url = value.startsWith('http') ? value : `https://${value}`;
+                    isLink = true;
+                } else {
+                    linkTextContent = line; 
+                    isLink = false; 
+                }
+            } else {
+                iconSpan.innerHTML = `<i class="${defaultIcon}"></i>`;
+            }
+
+            contactItem.appendChild(iconSpan);
+
+            if (isLink) {
                 const a = document.createElement('a');
                 a.href = url;
-                a.textContent = linkText;
-                if (!url.startsWith('mailto:')) {
+                a.textContent = linkTextContent;
+                if (!url.startsWith('mailto:') && !url.startsWith('tel:')) {
                     a.target = '_blank';
                     a.rel = 'noopener noreferrer';
                 }
-                p.appendChild(a);
+                contactItem.appendChild(a);
             } else {
-                p.textContent = line;
+                const p = document.createElement('p');
+                p.textContent = linkTextContent;
+                contactItem.appendChild(p);
             }
-            contactSection.appendChild(p);
+            contactGrid.appendChild(contactItem);
         });
     });
+    contactSection.appendChild(contactGrid);
     portfolioContainer.appendChild(contactSection);
 }
 

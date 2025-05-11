@@ -25,7 +25,28 @@
     --border-radius: 5px;
     --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     --transition-speed: 0.3s;
+
+    /*  Skills section and general use */
+    --primary-color-light: #e9ecef; 
+    --border-color-light: #e0e0e0;
+    --background-color-soft: #f9f9f9;
+    --box-shadow-subtle: 0 3px 6px rgba(0,0,0,0.07);
+    --box-shadow-hover: 0 6px 12px rgba(0,0,0,0.12);
+    --box-shadow-inset: inset 0 2px 4px rgba(0,0,0,0.05);
+    --text-color-muted: #6c757d;
+
+    /* Standardized radii and spacings - ensure these are used consistently */
+    --border-radius-s: 4px;
+    --border-radius-m: 8px;
+    --border-radius-l: 12px;
+    --border-radius-xl: 16px;
+
+    --padding-xs: 4px;
+    --spacing-s: 10px; /* General small spacing */
+    --spacing-m: 15px; /* General medium spacing */
+    --spacing-l: 20px; /* General large spacing */
 }
+
 .dark {
     --primary-color: #727070;
     --secondary-color: #b8b7b7;
@@ -35,4 +56,15 @@
     --link-color: #3498db;
     --border-color: #444;
     --focus-outline-color: #f39c12;
+
+    /*  for Skills section and general use - dark mode */
+    --primary-color-light: #3a3a3a; /* Darker equivalent for light primary */
+    --primary-color-dark-hover: #4a4a4a;
+    --secondary-color-dark: #2c2c2c;
+    --secondary-color-darker: #222222;
+    --border-color-light: #333;
+    --border-color-dark: #555;
+    --background-color-soft: #1e1e1e;
+    --text-color-muted: #888;
+    --text-color-dark: #e0e0e0; /* Explicit dark text color */
 }
