@@ -1,0 +1,50 @@
+Front End Devloper - intern
+Z Technologies LTD. | Remote
+Augast 2024 - Present
+- Utilized advanced web builder tools to create sophisticated, efficient
+ websites with streamlined development processes.
+- Collaborated with a cross-functional team to design and implement
+ website features, ensuring seamless user experiences.
+- Participated in code reviews to maintain high-quality standards and
+ optimize performance.
+- Developed responsive and user-friendly web interfaces using React.js
+ and modern front-end frameworks.
+
+Mobile Horror Game Developer
+Paget96 | Remote
+Freelance | February 2024 – April 2025 
+ 
+-Designed and developed a psychological horror-themed mobile game,
+ utilizing Unity and C# to create immersive gameplay experiences.
+ -Created engaging storylines and realistic game mechanics, tailored to
+ the mobile gaming audience on request.
+- Conducted thorough testing to ensure functionality and resolved bugs
+ to enhance game performance.
+ -Engineered a custom horror development tool for the Unity engine,
+ demonstrating advanced technical proficiency and problem-solving
+ skills by creating a specialized development solution from the ground
+ up
+ 
+
+Unity Game Devloper
+Self-Employed
+February 2023 – June 2024 SOLITUDE SHADOWS
+- Design and Development: Designed and built game solutions using
+ Unity, leveraging C# for scripting and Unity’s suite of tools to create
+ engaging and interactive experiences 
+- Programming and Commissioning: Programmed game functionalities,
+ debugged and tested games, and ensured seamless integration of
+ game components
+- 3D Modeling: Created 3D models for various projects, including
+ interior designs, environmental assets using Blender and SketchUp 
+
+
+/* Add more experiences above this line, following the same format. 
+   Each experience should be separated by a blank line.
+   Format:
+   Job Title
+   Company Name | City, State (or Remote)
+   Month Year - Month Year (or Present)
+   - Responsibility/Achievement 1
+   - Responsibility/Achievement 2 (can have multiple)
+*/

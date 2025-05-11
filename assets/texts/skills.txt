@@ -1,0 +1,13 @@
+LevelDesign: Environment Building, Player Progression, GameFlow, Spatial Storytelling
+Sound Design: Game Audio Implementation, Sound Effects Creation, Audio Mixing
+Testing & QA: Unit Testing, Gameplay Testing, Bug Tracking, Performance Optimization
+Strong foundation in Java, and front-end web development using HTML, CSS, JavaScript, and React.js.
+Skilled in version control systems, including GitHub, GitLab,and Unity Version Control,seamless collaboration and project management.
+Express.js
+MongoDB
+TypeScript
+Git & GitHub
+RESTful APIs
+Responsive Design
+Problem Solving
+Agile Methodologies
