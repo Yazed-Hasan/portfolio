@@ -1,0 +1,11 @@
+project1.png
+project2.png
+project3.png
+project4.png
+project4.png
+project4.png
+# Add more image filenames here, one per line
+# For example:
+# my_artwork.jpg
+# another_photo.jpeg
+# cool_design.gif

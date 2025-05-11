@@ -11,7 +11,7 @@ project4.png
 Project Three
 Portfolio Website
 A personal portfolio website designed with React.js and CSS3 to showcase projects, skills, and contact information, featuring responsive design and interactive elements.
-project3.png
+project3.png,project3.png,project3.png,project3.png,project3.png,project3.png,project3.png
 
 Project Three
 Portfolio Website

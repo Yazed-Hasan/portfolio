@@ -1,0 +1,24 @@
+Senior Software Engineer
+Tech Solutions Inc. | San Francisco, CA
+Jan 2022 - Present
+- Led the development of a new client-facing analytics dashboard using JavaScript and Python.
+- Mentored junior engineers and conducted code reviews.
+- Collaborated with product managers to define feature requirements.
+
+Software Engineer
+Web Innovators LLC | Remote
+Jun 2019 - Dec 2021
+- Developed and maintained features for a large-scale e-commerce platform.
+- Contributed to the migration of legacy code to a modern microservices architecture.
+- Wrote unit and integration tests to ensure code quality.
+ 
+
+/* Add more experiences above this line, following the same format. 
+   Each experience should be separated by a blank line.
+   Format:
+   Job Title
+   Company Name | City, State (or Remote)
+   Month Year - Month Year (or Present)
+   - Responsibility/Achievement 1
+   - Responsibility/Achievement 2 (can have multiple)
+*/
