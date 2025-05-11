@@ -1,0 +1,88 @@
+@import './variables.css';
+.bg-body-tertiary {
+    background-color: rgb(14, 87, 197);
+}
+ .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: var(--primary-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.5s ease, padding 0.3s ease;
+    gap: 20px;
+}
+.navbar.scrolled {
+    padding: 10px 20px;
+    background-color: var(--secondary-color);
+}
+.navbar a {
+    color: var(--background-color);
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+    border: 2px solid transparent;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+.navbar a:hover,
+.navbar a:focus {
+    color: var(--accent-color);
+    transform: scale(1.1);
+    border: 2px solid var(--accent-color);
+    transition: color 0.3s ease, transform 0.3s ease;
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+.nav-links a.active {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+}
+.theme-toggle-button:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px var(--background-color), 0 0 0 5px var(--accent-color);
+}
+@media (max-width: 1024px) {
+    .navbar a {
+        margin: 0 10px;
+        font-size: 0.9em;
+    }
+    .hamburger {
+        display: flex;
+    }
+    .nav-links {
+        top: 50px;
+        height: calc(100% - 50px);
+    }
+}
+@media (max-width: 768px) {
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 10px 20px;
+    }
+    .navbar a {
+        color: var(--background-color);
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+        font-size: 1em;
+        padding: 15px 0;
+        border-top: 1px solid var(--accent-color);
+    }
+    .hamburger {
+        display: flex;
+        z-index: 1001;
+        margin-right: 0;
+    }
+}

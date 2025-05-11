@@ -1,28 +1,21 @@
 {
-  "name": "hospital",
+  "name": "portfolio-vanilla-js",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "bootstrap": "^5.3.3",
-    "cra-template": "1.2.0",
-    "react": "^19.0.0",
-    "react-bootstrap": "^2.10.7",
-    "react-dom": "^19.0.0",
-    "react-scripts": "5.0.1",
-    "aos": "^2.3.4"
-  },
+  "description": "A portfolio website built with HTML, CSS, and vanilla JavaScript.",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "echo \"Open public/index.html in your browser to start.\" && exit 0",
+    "build": "echo \"No build step required for vanilla JS project.\" && exit 0",
+    "test": "echo \"No test script configured.\" && exit 0"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
+  "keywords": [
+    "portfolio",
+    "vanilla-js",
+    "html",
+    "css"
+  ],
+  "author": "Your Name",
+  "license": "ISC",
   "browserslist": {
     "production": [
       ">0.2%",
