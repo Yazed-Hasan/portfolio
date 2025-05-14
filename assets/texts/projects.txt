@@ -1,27 +1,22 @@
-Project One
-E-commerce Platform
-A full-featured e-commerce application built with React.js and Node.js, featuring user authentication, product listings, shopping cart functionality, and payment integration.
-project3.png
-
-Project Two
-solitude-shadows
+Project one
+solitude shadows
 In one of the most mysterious and abandoned houses in the area, strange occurrences have caught the attention of the police department. Neighbors have reported hearing screams, gunshots, and seeing suspicious movements around the house. These unsettling reports have led the police to assign a mission to a lieutenant, tasked with investigating the house and verifying the truth behind these eerie complaints. But what awaits inside is a challenge beyond anything the lieutenant could have anticipated.
-project4.png
+solitude-shadows.jpg , project4.png , solitude-shadows-2.gif
 
-Project Three
-Portfolio Website
-A personal portfolio website designed with React.js and CSS3 to showcase projects, skills, and contact information, featuring responsive design and interactive elements.
-project3.png,project3.png,project3.png,project3.png,project3.png,project3.png,project3.png
+Project two
+Unknown-prototype
+prototype I created, heavily inspired by P.T..
+Unknown-prototype.jpg, Unknown-prototype-8.png , Unknown-prototype-2.png , Unknown-prototype-3.png , Unknown-prototype-6.png
 
-Project Three
-Portfolio Website
-A personal portfolio website designed with React.js and CSS3 to showcase projects, skills, and contact information, featuring responsive design and interactive elements.
-project3.png
+Project three
+Unknown-prototype(webgl)
+prototype I created, heavily inspired by P.T.. (this WebVersion)
+Unknown-prototype.jpg, Unknown-prototype-1.png , Unknown-prototype-2.png , Unknown-prototype-3.png , Unknown-prototype-6.png
 
-Project Three
-Portfolio Website
-A personal portfolio website designed with React.js and CSS3 to showcase projects, skills, and contact information, featuring responsive design and interactive elements.
-project3.png
+Project four
+Dynamic portfolio this web page
+Dynamic web page created with native HTML,Css,JavaScript to create portfolio with ease
+New Project_.jpg
 /* Add more projects below following the same format:
 Title of Project
 Subtitle of Project

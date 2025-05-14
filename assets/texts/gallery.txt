@@ -1,9 +1,9 @@
-project1.png
-project2.png
-project3.png
-project4.png
-project4.png
-project4.png
+Unknown-prototype-9.gif
+solitude-shadows-2.gif
+Unknown-prototype.jpg
+Unknown-prototype-1.png
+
+
 # Add more image filenames here, one per line
 # For example:
 # my_artwork.jpg
