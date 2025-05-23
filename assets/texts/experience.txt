@@ -12,7 +12,7 @@ Augast 2024 - Present
 
 Mobile Horror Game Developer
 Paget96 | Remote
-Freelance | February 2024 – April 2025 
+Freelance | September 2024 – April 2025 
  
 -Designed and developed a psychological horror-themed mobile game,
  utilizing Unity and C# to create immersive gameplay experiences.
